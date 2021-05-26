@@ -3,9 +3,9 @@ const router = express.Router()
 const Utils = require('./../utils')
 const Tracker = require('./../models/Tracker')
 
-// GET- get all tracker entries ---------------------------
+// GET- get tracker entries ---------------------------
 router.get('/', Utils.authenticateToken, (req, res) => {
-  Tracker.find().populate('user', '_id firstName')
+  Tracker.find()
     .then(trackerEntries => {
       if(trackerEntries == null){
         return res.status(404).json({

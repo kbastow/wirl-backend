@@ -4,7 +4,7 @@ const Utils = require('./../utils')
 const Blog = require('./../models/Blog')
 const path = require('path')
 
-// GET- get all blogs ---------------------------
+// GET - get all blogs ---------------------------
 router.get('/', Utils.authenticateToken, (req, res) => {
   Blog.find().populate('user', '_id firstName')
     .then(blogs => {
